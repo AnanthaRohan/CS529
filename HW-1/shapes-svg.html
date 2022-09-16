@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>HW-1</title>
+    <nav class="navbar">
+      <ul class="link-group">
+        <li class="link"><a href="index.html">About</a></li>
+        <li class="link active"><a href="shapes-svg.html">SVG</a></li>
+        <li class="link"><a href="visual.html">Visualization</a></li>
+        <li class="link"><a href="credits.html">Credits</a></li>
+        <li class="link"><a href="Hw-2.html">HW-2</a></li>
+      </ul>
+    </nav>
+  </head>
+  <body>
+    <div class="intro-svg">
+      <h1>Click on the shapes to play/pause!</h1>
+    </div>
+    <div class="shapes">
+      <svg
+        id="js-toggle-c"
+        class="a-slide btn"
+        data-animation-circle="stop"
+        height="100"
+        width="100"
+      >
+        <circle
+          cx="50"
+          cy="50"
+          r="40"
+          stroke="#000000"
+          stroke-width="3"
+          fill="#58bdd1"
+        />
+      </svg>
+    </div>
+    <div class="shapes">
+      <svg
+        id="js-toggle-r"
+        class="a-slide"
+        data-animation-rect="stop"
+        width="150"
+        height="110"
+      >
+        <rect
+          width="150"
+          height="100"
+          style="fill: #d29656; stroke-width: 5; stroke: #000000"
+        />
+      </svg>
+    </div>
+    <div class="shapes">
+      <svg
+        id="js-toggle-e"
+        class="a-slide"
+        data-animation-triangle="stop"
+        height="100"
+        width="100"
+      >
+        <polygon
+          points="50 15, 100 100, 0 100"
+          style="fill: rgb(133, 185, 69); stroke: #000000; stroke-width: 3"
+        />
+      </svg>
+    </div>
+    <script>
+      const jstogglec = document.getElementById("js-toggle-c");
+      jstogglec.addEventListener("click", () => {
+        const animations = document.querySelectorAll("[data-animation-circle");
+        animations.forEach((animation) => {
+          const running =
+            getComputedStyle(animation).getPropertyValue("--animps") ||
+            "running";
+          animation.style.setProperty(
+            "--animps",
+            running === "running" ? "paused" : "running"
+          );
+        });
+      });
+      const jstoggler = document.getElementById("js-toggle-r");
+      jstoggler.addEventListener("click", () => {
+        const animations = document.querySelectorAll("[data-animation-rect");
+        animations.forEach((animation) => {
+          const running =
+            getComputedStyle(animation).getPropertyValue("--animps") ||
+            "running";
+          animation.style.setProperty(
+            "--animps",
+            running === "running" ? "paused" : "running"
+          );
+        });
+      });
+      const jstogglee = document.getElementById("js-toggle-e");
+      jstogglee.addEventListener("click", () => {
+        const animations = document.querySelectorAll(
+          "[data-animation-triangle"
+        );
+        animations.forEach((animation) => {
+          const running =
+            getComputedStyle(animation).getPropertyValue("--animps") ||
+            "running";
+          animation.style.setProperty(
+            "--animps",
+            running === "running" ? "paused" : "running"
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
